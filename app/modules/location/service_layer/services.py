@@ -1,4 +1,5 @@
 from app.modules.location.domain.repository import AbstractLocationUnitOfWork
+from app.core.exceptions import ObjectNotFoundException
 
 
 class GetAllLocations:
@@ -28,3 +29,18 @@ class CreateLocation:
             )
             self.uow.commit()
             return new_location
+
+
+class GetSingleLocation:
+    def __init__(
+        self,
+        uow: AbstractLocationUnitOfWork,
+    ):
+        self.uow = uow
+
+    def get(self, location_id: int):
+        with self.uow:
+            location = self.uow.location.get_location_by_id(location_id)
+            if not location:
+                raise ObjectNotFoundException("Location not found")
+            return location

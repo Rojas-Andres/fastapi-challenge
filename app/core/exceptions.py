@@ -55,3 +55,9 @@ class CustomAPIException(Exception):
 
         self.status_code = status_code
         self.detail = detail
+
+
+class ObjectNotFoundException(Exception):
+    """
+    ObjectNotFoundException exception for general API errors
+    """

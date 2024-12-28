@@ -19,6 +19,10 @@ class LocationSqlAlchemyRepository(AbstractLocationRepository):
         self.session.flush()
         return self.to_dict(location)
 
+    def get_location_by_id(self, location_id: int) -> dict:
+        location = self.session.query(LocationORM).filter_by(id=location_id).first()
+        return self.to_dict(location) if location else None
+
     def to_dict(self, location: LocationORM) -> dict:
         return {
             "id": location.id,

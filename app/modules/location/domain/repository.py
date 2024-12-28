@@ -11,6 +11,9 @@ class AbstractLocationRepository(ABC):
     def create_location(self, name: str, latitude: float, longitude: float) -> dict:
         raise NotImplementedError
 
+    @abstractmethod
+    def get_location_by_id(self, location_id: int) -> dict:
+        raise NotImplementedError
 
 class AbstractLocationUnitOfWork(SqlAlchemyUnitOfWork):
     location: AbstractLocationRepository

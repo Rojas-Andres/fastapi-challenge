@@ -9,7 +9,7 @@ from fastapi import Request, status
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.responses import JSONResponse, Response
 
-from app.core.exceptions import CustomAPIException, IntegrityError, ValidationError
+from app.core.exceptions import CustomAPIException, IntegrityError, ValidationError, ObjectNotFoundException
 
 
 class ErrorHandlerMiddleware(BaseHTTPMiddleware):
@@ -80,7 +80,13 @@ class ErrorHandlerMiddleware(BaseHTTPMiddleware):
                 status_code=exc.status_code,
                 headers=headers,
             )
-
+        except ObjectNotFoundException as exc:
+            logging.error("ObjectNotFound: %s", exc)
+            return JSONResponse(
+                {"success": True, "message": str(exc), "code": "NOT_FOUND"},
+                status_code=status.HTTP_400_BAD_REQUEST,
+                headers=headers,
+            )
         except Exception as exc:
             logging.error("Unexpected error: %s", exc)
             return JSONResponse(
