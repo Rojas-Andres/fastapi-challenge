@@ -1,16 +1,26 @@
-from fastapi import APIRouter, Depends, HTTPException, status
-from typing import List
+from fastapi import APIRouter
 from app.modules.reviews.service_layer import services
 from app.modules.reviews.adapters.unit_of_work import ReviewsUnitOfWork
 from app.modules.reviews.domain.models import ReviewCreate
-from app.modules.location.adapters.unit_of_work import LocationUnitOfWork
+from app.infrastructure.api.schemas.reviews_schema import (
+    ReviewRecommendationReturn,
+    ReviewCreateReturn,
+)
 
 router = APIRouter()
 
 
-@router.post("/")
+@router.post("/", response_model=ReviewCreateReturn)
 def api_create_review(review_create: ReviewCreate):
     review_create = services.CreateReview(uow=ReviewsUnitOfWork()).create(
         **review_create.dict()
     )
-    return {"data": review_create}
+    return ReviewCreateReturn(data=review_create)
+
+
+@router.get("/recommendation", response_model=ReviewRecommendationReturn)
+def api_recomendation_review():
+    reviews_recommendation = services.GetRecomendationReview(
+        uow=ReviewsUnitOfWork()
+    ).get()
+    return ReviewRecommendationReturn(data=reviews_recommendation)

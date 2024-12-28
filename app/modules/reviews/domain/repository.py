@@ -4,17 +4,24 @@ from abc import ABC, abstractmethod
 
 class AbstractCategoryRepository(ABC):
     @abstractmethod
-    def get_category_by_id(self, category_id: int): ...
+    def get_category_by_id(self, category_id: int):
+        raise NotImplementedError
 
 
 class AbstractLocationRepository(ABC):
     @abstractmethod
-    def get_location_by_id(self, location_id: int): ...
+    def get_location_by_id(self, location_id: int):
+        raise NotImplementedError
 
 
 class AbstractReviewsRepository(ABC):
     @abstractmethod
-    def create_review(self, location_id: int, category_id: int): ...
+    def create_review(self, location_id: int, category_id: int):
+        raise NotImplementedError
+
+    @abstractmethod
+    def get_recomendation_review(self):
+        raise NotImplementedError
 
 
 class AbstractReviewsUnitOfWork(SqlAlchemyUnitOfWork):
