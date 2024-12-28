@@ -22,12 +22,9 @@ class BaseModel(Base):
     __abstract__ = True
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
-    created_by = Column(String)
     updated_at = Column(
         DateTime,
         default=lambda: datetime.now(timezone.utc),
         onupdate=lambda: datetime.now(timezone.utc),
     )
-    updated_by = Column(String, nullable=True)
     deleted_at = Column(DateTime, nullable=True)
-    deleted_by = Column(String, nullable=True)

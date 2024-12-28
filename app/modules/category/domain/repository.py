@@ -2,22 +2,22 @@ from app.modules.shared.domain.repository import SqlAlchemyUnitOfWork
 from abc import ABC, abstractmethod
 
 
-class AbstractLocationRepository(ABC):
+class AbstractCategoryRepository(ABC):
     @abstractmethod
-    def get_locations(self) -> list[dict]:
+    def get_categorys(self) -> list[dict]:
         raise NotImplementedError
 
     @abstractmethod
-    def create_location(self, name: str, latitude: float, longitude: float) -> dict:
+    def create_category(self, name: str) -> dict:
         raise NotImplementedError
 
     @abstractmethod
-    def get_location_by_id(self, location_id: int) -> dict:
+    def get_category_by_id(self, Category_id: int) -> dict:
         raise NotImplementedError
 
 
-class AbstractLocationUnitOfWork(SqlAlchemyUnitOfWork):
-    location: AbstractLocationRepository
+class AbstractCategoryUnitOfWork(SqlAlchemyUnitOfWork):
+    category: AbstractCategoryRepository
 
     def __enter__(self):
         self.session = self.session_factory()

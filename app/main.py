@@ -1,5 +1,6 @@
 from fastapi import FastAPI
-from app.infrastructure.api.routers import locations_router
+from app.infrastructure.api.routers import locations_router, category_router
+
 from app.core.middleware import ErrorHandlerMiddleware  # noqa: E402
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -16,3 +17,4 @@ app.add_middleware(ErrorHandlerMiddleware)
 app.include_router(
     locations_router.router, prefix="/api/v1/locations", tags=["locations"]
 )
+app.include_router(category_router.router, prefix="/api/v1/category", tags=["category"])

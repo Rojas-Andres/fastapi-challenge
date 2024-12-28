@@ -9,7 +9,12 @@ from fastapi import Request, status
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.responses import JSONResponse, Response
 
-from app.core.exceptions import CustomAPIException, IntegrityError, ValidationError, ObjectNotFoundException
+from app.core.exceptions import (
+    CustomAPIException,
+    IntegrityError,
+    ValidationError,
+    ObjectNotFoundException,
+)
 
 
 class ErrorHandlerMiddleware(BaseHTTPMiddleware):
