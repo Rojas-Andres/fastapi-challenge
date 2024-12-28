@@ -3,7 +3,11 @@ from app.modules.reviews.domain.repository import (
     AbstractCategoryRepository,
     AbstractLocationRepository,
 )
-from app.infrastructure.database.models import LocationORM, CategoryORM
+from app.infrastructure.database.models import (
+    LocationORM,
+    CategoryORM,
+    LocationCategoryReviewORM,
+)
 from sqlalchemy.orm import Session
 
 
@@ -12,7 +16,20 @@ class ReviewsSqlAlchemyRepository(AbstractReviewsRepository):
         super().__init__()
         self.session: Session = session
 
-    def create_review(self, location_id: int, category_id: int): ...
+    def create_review(self, location_id: int, category_id: int) -> dict:
+        review = LocationCategoryReviewORM(
+            location_id=location_id, category_id=category_id
+        )
+        self.session.add(review)
+        self.session.flush()
+        return self.to_dict(review)
+
+    def to_dict(self, review: LocationCategoryReviewORM) -> dict:
+        return {
+            "id": review.id,
+            "location_id": review.location_id,
+            "category_id": review.category_id,
+        }
 
 
 class CategorySqlAlchemyRepository(AbstractCategoryRepository):

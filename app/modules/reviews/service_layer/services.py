@@ -6,11 +6,12 @@ class CreateReview:
     def __init__(self, uow: AbstractReviewsUnitOfWork):
         self.uow = uow
 
-    def create(self, location_id: int, category_id: int):
+    def create(self, location_id: int, category_id: int) -> dict:
         with self.uow:
-            location_id = self.uow.locations.get_location_by_id(location_id)
-            if not location_id:
+            if not self.uow.locations.get_location_by_id(location_id):
                 raise ObjectNotFoundException("Location not found")
-            category_id = self.uow.category.get_category_by_id(category_id)
-            if not category_id:
+            if not self.uow.category.get_category_by_id(category_id):
                 raise ObjectNotFoundException("Category not found")
+            review = self.uow.reviews.create_review(location_id, category_id)
+            self.uow.commit()
+            return review
