@@ -4,6 +4,13 @@ from datetime import datetime
 
 
 class CategoryORM(BaseModel):
+    """
+    CategoryORM is a SQLAlchemy ORM model representing the 'categories' table.
+
+    Attributes:
+        id (Column): An integer primary key for the category.
+        name (Column): A unique string representing the name of the category.
+    """
     __tablename__ = "categories"
 
     id = Column(Integer, primary_key=True, index=True)
