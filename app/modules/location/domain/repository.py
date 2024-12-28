@@ -4,11 +4,11 @@ from abc import ABC, abstractmethod
 
 class AbstractLocationRepository(ABC):
     @abstractmethod
-    def get_locations(self):
+    def get_locations(self) -> list[dict]:
         raise NotImplementedError
 
     @abstractmethod
-    def create_location(self):
+    def create_location(self, name: str, latitude: float, longitude: float) -> dict:
         raise NotImplementedError
 
 

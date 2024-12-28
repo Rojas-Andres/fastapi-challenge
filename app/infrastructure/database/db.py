@@ -9,7 +9,6 @@ engine = create_engine(
     if "sqlite" in settings.DATABASE_URL
     else {},
 )
-# SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
 DEFAULT_SESSION_FACTORY = sessionmaker(

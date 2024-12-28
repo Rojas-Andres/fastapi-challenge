@@ -11,8 +11,7 @@ class GetAllLocations:
     def get(self):
         with self.uow:
             locations = self.uow.location.get_locations()
-            print(locations)
-            raise ValueError("Not implemented")
+            return locations
 
 
 class CreateLocation:
@@ -22,7 +21,10 @@ class CreateLocation:
     ):
         self.uow = uow
 
-    def create(self):
+    def create(self, name: str, latitude: float, longitude: float):
         with self.uow:
-            new_location = self.uow.location.create_location()
+            new_location = self.uow.location.create_location(
+                name=name, latitude=latitude, longitude=longitude
+            )
             self.uow.commit()
+            return new_location
