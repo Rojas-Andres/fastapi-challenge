@@ -14,6 +14,7 @@ class CategoryUnitOfWork(AbstractCategoryUnitOfWork):
     Methods:
         __enter__: Initializes the unit of work and sets up the category repository.
     """
+
     def __enter__(self):
         super().__enter__()
         self.category = CategorySqlAlchemyRepository(self.session)

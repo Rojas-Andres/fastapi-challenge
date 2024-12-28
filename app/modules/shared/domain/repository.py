@@ -13,19 +13,20 @@ class AbstractUnitOfWork(abc.ABC):
     Methods:
         __enter__() -> AbstractUnitOfWork:
             Enter the runtime context related to this object.
-        
+
         __exit__(*args):
             Exit the runtime context related to this object and roll back the transaction.
-        
+
         commit():
             Commit the transaction by calling the _commit method.
-        
+
         _commit():
             Abstract method to be implemented by subclasses to define the commit logic.
-        
+
         rollback():
             Abstract method to be implemented by subclasses to define the rollback logic.
     """
+
     def __enter__(self) -> "AbstractUnitOfWork":
         return self
 
@@ -57,6 +58,7 @@ class SqlAlchemyUnitOfWork(AbstractUnitOfWork):
         _commit(): Commits the current transaction.
         rollback(): Rolls back the current transaction.
     """
+
     def __init__(self, session_factory=DEFAULT_SESSION_FACTORY):
         self.session_factory = session_factory
 
