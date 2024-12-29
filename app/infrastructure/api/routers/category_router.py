@@ -21,7 +21,7 @@ def api_create_category(category_create: CategoryCreate):
     return {"data": category}
 
 
-@router.post("/{category_id}")
+@router.get("/{category_id}")
 def api_get_single_category(category_id: int):
     category = services.GetSingleCategory(uow=CategoryUnitOfWork()).get(category_id)
     return {"data": category}

@@ -21,7 +21,7 @@ def api_create_location(location_create: LocationCreate):
     return {"data": location}
 
 
-@router.post("/{location_id}")
+@router.get("/{location_id}")
 def api_get_single_location(location_id: int):
     location = services.GetSingleLocation(uow=LocationUnitOfWork()).get(location_id)
     return {"data": location}
