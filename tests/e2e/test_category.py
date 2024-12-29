@@ -44,7 +44,6 @@ class TestCategory(TestCase):
         assert response.status_code == 200
         assert len(response.json()["data"]) == 11
 
-
     def test_get_only_category(self):
         response = self.client.post(
             "/api/v1/category",
@@ -56,9 +55,7 @@ class TestCategory(TestCase):
         assert response.status_code == 200
         assert response.json()["data"]["id"] == category_id
 
-
     def test_category_id_not_found(self):
         response = self.client.get("/api/v1/category/0")
         assert response.status_code == 400
         assert response.json()["message"] == "Category not found"
-
