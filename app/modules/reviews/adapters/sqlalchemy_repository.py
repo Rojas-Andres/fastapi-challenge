@@ -23,7 +23,7 @@ class ReviewsSqlAlchemyRepository(AbstractReviewsRepository):
         super().__init__()
         self.session: Session = session
 
-    def create_review(self, location_id: int, category_id: int) -> dict:
+    def create_review(self, location_id: int, category_id: int) -> ReviewCreate:
         review = LocationCategoryReviewORM(
             location_id=location_id, category_id=category_id
         )
@@ -119,7 +119,7 @@ class LocationSqlAlchemyRepository(AbstractLocationRepository):
         super().__init__()
         self.session: Session = session
 
-    def get_location_by_id(self, location_id: int):
+    def get_location_by_id(self, location_id: int) -> int:
         location = self.session.query(LocationORM).filter_by(id=location_id).first()
         if not location:
             return None

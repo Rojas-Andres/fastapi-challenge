@@ -14,7 +14,7 @@ Base = declarative_base()
 DEFAULT_SESSION_FACTORY = sessionmaker(
     bind=create_engine(
         settings.DATABASE_URL,
-        isolation_level="REPEATABLE READ",
+        isolation_level="REPEATABLE READ" if "sqlite" not in settings.DATABASE_URL else None,
         echo=True,
     )
 )
