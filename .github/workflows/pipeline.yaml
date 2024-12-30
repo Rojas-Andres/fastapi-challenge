@@ -23,3 +23,17 @@ jobs:
 
       - name: Run pre-commit hooks
         run: pre-commit run --all-files
+  test-postgres:
+    if: github.event.pull_request.draft == false
+    needs: [pre-commit-validate]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      max-parallel: 8
+    steps:
+      - uses: actions/checkout@v3
+      - name: Load environment variables raiz project
+        run: echo "${{ secrets.ENVIRONMENT_VARIABLES }}" > .env
+      - name: RUN Coverage
+        run: |
+          docker compose run fastapi sh -c "pytest ."

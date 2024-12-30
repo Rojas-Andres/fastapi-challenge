@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 COPY requirements/common.txt /tmp/common.txt
 COPY requirements/local.txt /tmp/local.txt
+COPY requirements/test.txt /tmp/test.txt
 
 RUN pip install -Ur /tmp/local.txt
 

@@ -21,6 +21,8 @@ services:
     volumes:
       - ./app:/project_fastapi/app
       - ./alembic:/project_fastapi/alembic
+      - ./alembic.ini:/project_fastapi/alembic.ini
+      - ./tests:/project_fastapi/tests
       - ${HOME}/.aws:/home/user/.aws:ro
       - ${HOME}/.gitconfig:/home/user/.gitconfig:ro
       - ${HOME}/.ssh:/home/user/.ssh:ro
