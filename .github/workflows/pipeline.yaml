@@ -1,0 +1,25 @@
+name: Checks pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  pre-commit-validate:
+    name: Pre commit validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.11
+
+      - name: Install pre-commit dependencies
+        run: |
+          pip install pre-commit
+
+      - name: Run pre-commit hooks
+        run: pre-commit run --all-files
