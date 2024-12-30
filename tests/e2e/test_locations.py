@@ -25,6 +25,18 @@ class TestLocations(TestCase):
         os.environ["DATABASE_NAME"] = "location_test"
 
     def test_create_location(self):
+        """
+        Test the creation of a new location.
+
+        This test sends a POST request to the /api/v1/locations endpoint with a JSON payload
+        containing the name, latitude, and longitude of the location to be created. It then
+        asserts that the response status code is 200 and that the name of the created location
+        matches the expected name.
+
+        Assertions:
+            - The response status code is 200.
+            - The name of the created location in the response matches the expected name.
+        """
         name_location_create = "location_test"
         response = self.client.post(
             "/api/v1/locations",
