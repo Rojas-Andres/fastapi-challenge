@@ -24,6 +24,6 @@ app.include_router(category_router.router, prefix="/api/v1/category", tags=["cat
 app.include_router(reviews_router.router, prefix="/api/v1/reviews", tags=["review"])
 
 
-@app.get("/healtcheck")
+@app.get("/healtcheck/")
 def api_healtcheck():
     return {"status": "ok"}
