@@ -43,6 +43,26 @@
 #### Creacion de ECR para guardar imagenes de docker
 ![](images/deployment/creation_images_ecr.png)
 
+#### Exito de ejecucion de codepipeline
+![](images/deployment/codepipeline_success.png)
+
+#### Load balancer success
+![](images/deployment/aplication_load_balancer_active.png)
+
+#### Task ECS fargate success
+![](images/deployment/tarea_ecs_execute.png)
+
+#### Logs ECS fargate success
+![](images/deployment/logs_task_ecs.png)
+
+
+#### Cloudformation success
+![](images/deployment/cloudformation_success.png)
+
+#### Access load balancer port 8000
+![](images/deployment/access_8000_load_balancer.png)
+
+
 # Por motivos de costos se eliminaron los bucket y el stack. Se deja en evidencia que el proyecto se puede desplegar en AWS en ECS con fargate
 
 Documentacion de arquitectura
