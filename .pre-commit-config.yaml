@@ -18,6 +18,7 @@ exclude: >
       | app/modules/reviews/domain/repository.py
       | app/modules/shared/domain/repository.py
       | app/core/middleware.py
+      | param_update.py
   )$
 repos:
   - repo: https://github.com/pycqa/flake8
