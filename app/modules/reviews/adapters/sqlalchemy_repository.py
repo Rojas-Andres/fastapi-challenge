@@ -88,7 +88,7 @@ class ReviewsSqlAlchemyRepository(AbstractReviewsRepository):
                 union_query.c.review_priority,
             )
             .order_by(union_query.c.review_priority)
-            .limit(30)
+            .limit(10)
         )
         results = final_query.all()
         return [
