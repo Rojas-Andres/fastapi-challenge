@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     nginx \
     gnupg \
     curl \
-&& rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/*
 
 
 RUN rm /etc/nginx/nginx.conf
@@ -23,9 +23,8 @@ COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
 
 COPY requirements/common.txt /tmp/common.txt
-COPY requirements/local.txt /tmp/local.txt
 
-RUN pip install -Ur /tmp/local.txt
+RUN pip install -Ur /tmp/common.txt
 
 ENV APP_HOME=/app
 
