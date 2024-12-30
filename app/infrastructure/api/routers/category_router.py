@@ -1,8 +1,8 @@
-from fastapi import APIRouter, Depends, HTTPException, status
-from typing import List
-from app.modules.category.service_layer import services
+from fastapi import APIRouter
+
 from app.modules.category.adapters.unit_of_work import CategoryUnitOfWork
 from app.modules.category.domain.models import CategoryCreate
+from app.modules.category.service_layer import services
 
 router = APIRouter()
 

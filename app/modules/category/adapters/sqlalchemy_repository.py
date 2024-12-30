@@ -1,6 +1,7 @@
-from app.modules.category.domain.repository import AbstractCategoryRepository
-from app.infrastructure.database.models import CategoryORM
 from sqlalchemy.orm import Session
+
+from app.infrastructure.database.models import CategoryORM
+from app.modules.category.domain.repository import AbstractCategoryRepository
 
 
 class CategorySqlAlchemyRepository(AbstractCategoryRepository):
@@ -26,8 +27,8 @@ class CategorySqlAlchemyRepository(AbstractCategoryRepository):
         category = self.session.query(CategoryORM).filter_by(id=category_id).first()
         return self.to_dict(category) if category else None
 
-    def to_dict(self, Category: CategoryORM) -> dict:
+    def to_dict(self, category: CategoryORM) -> dict:
         return {
-            "id": Category.id,
-            "name": Category.name,
+            "id": category.id,
+            "name": category.name,
         }

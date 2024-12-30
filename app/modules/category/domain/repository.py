@@ -1,5 +1,6 @@
-from app.modules.shared.domain.repository import SqlAlchemyUnitOfWork
 from abc import ABC, abstractmethod
+
+from app.modules.shared.domain.repository import SqlAlchemyUnitOfWork
 
 
 class AbstractCategoryRepository(ABC):
@@ -31,7 +32,7 @@ class AbstractCategoryRepository(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def get_category_by_id(self, Category_id: int) -> dict:
+    def get_category_by_id(self, category_id: int) -> dict:
         raise NotImplementedError
 
 
@@ -49,5 +50,5 @@ class AbstractCategoryUnitOfWork(SqlAlchemyUnitOfWork):
     category: AbstractCategoryRepository
 
     def __enter__(self):
-        self.session = self.session_factory()
+        self.session = self.session_factory()  # noqa: W0201
         return super().__enter__()

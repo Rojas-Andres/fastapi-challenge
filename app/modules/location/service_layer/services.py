@@ -1,5 +1,5 @@
-from app.modules.location.domain.repository import AbstractLocationUnitOfWork
 from app.core.exceptions import ObjectNotFoundException
+from app.modules.location.domain.repository import AbstractLocationUnitOfWork
 
 
 class GetAllLocations:

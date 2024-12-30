@@ -1,7 +1,7 @@
-from sqlalchemy import Column, Integer, String, Float, ForeignKey, DateTime
-from app.infrastructure.database.models.base_model import BaseModel
-from datetime import datetime
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
+
+from app.infrastructure.database.models.base_model import BaseModel
 
 
 class CategoryORM(BaseModel):

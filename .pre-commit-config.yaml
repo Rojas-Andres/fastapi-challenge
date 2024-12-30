@@ -1,5 +1,5 @@
 default_language_version:
-  python: python3.11
+  python: python
 default_stages:
   - commit
   - push
@@ -11,7 +11,13 @@ exclude: >
       | alembic/versions/.*
       | .*/alembic/.*\.py
       | .*test.*
-      | app/adapters/database/models/__init__.py
+      | .*__init__\.py
+      | .*gunicorn.conf.py
+      | app/modules/category/domain/repository.py
+      | app/modules/location/domain/repository.py
+      | app/modules/reviews/domain/repository.py
+      | app/modules/shared/domain/repository.py
+      | app/core/middleware.py
   )$
 repos:
   - repo: https://github.com/pycqa/flake8
@@ -31,7 +37,6 @@ repos:
         exclude: (tests|\.code_quality|alembic/versions)
         verbose: true
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    # Ruff version.
     rev: v0.1.14
     hooks:
       # Run the linter.

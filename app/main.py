@@ -1,13 +1,12 @@
 from fastapi import FastAPI
-from app.infrastructure.api.routers import (
-    locations_router,
-    category_router,
-    reviews_router,
-)
-
-from app.core.middleware import ErrorHandlerMiddleware  # noqa: E402
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.core.middleware import ErrorHandlerMiddleware  # noqa: E402
+from app.infrastructure.api.routers import (
+    category_router,
+    locations_router,
+    reviews_router,
+)
 
 app = FastAPI(title="Aplicación My World", version="0.1.0")
 app.add_middleware(

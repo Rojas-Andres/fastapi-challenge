@@ -1,5 +1,6 @@
-from app.infrastructure.database.db import DEFAULT_SESSION_FACTORY
 import abc
+
+from app.infrastructure.database.db import DEFAULT_SESSION_FACTORY
 
 
 class AbstractUnitOfWork(abc.ABC):

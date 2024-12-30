@@ -5,9 +5,10 @@ Base model
 import uuid
 from datetime import datetime, timezone
 
-from app.infrastructure.database.db import Base
-from sqlalchemy import Column, DateTime, String
+from sqlalchemy import Column, DateTime
 from sqlalchemy.dialects.postgresql import UUID
+
+from app.infrastructure.database.db import Base
 
 
 class BaseModel(Base):

@@ -1,7 +1,7 @@
-from app.modules.location.domain.repository import AbstractLocationUnitOfWork
 from app.modules.location.adapters.sqlalchemy_repository import (
     LocationSqlAlchemyRepository,
 )
+from app.modules.location.domain.repository import AbstractLocationUnitOfWork
 
 
 class LocationUnitOfWork(AbstractLocationUnitOfWork):

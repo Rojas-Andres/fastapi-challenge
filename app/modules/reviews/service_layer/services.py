@@ -1,9 +1,9 @@
-from app.modules.reviews.domain.repository import AbstractReviewsUnitOfWork
 from app.core.exceptions import ObjectNotFoundException
 from app.infrastructure.api.schemas.reviews_schema import (
-    ReviewRecommendation,
     ReviewCreate,
+    ReviewRecommendation,
 )
+from app.modules.reviews.domain.repository import AbstractReviewsUnitOfWork
 
 
 class CreateReview:

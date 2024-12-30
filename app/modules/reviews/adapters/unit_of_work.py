@@ -1,9 +1,9 @@
-from app.modules.reviews.domain.repository import AbstractReviewsUnitOfWork
 from app.modules.reviews.adapters.sqlalchemy_repository import (
-    ReviewsSqlAlchemyRepository,
     CategorySqlAlchemyRepository,
     LocationSqlAlchemyRepository,
+    ReviewsSqlAlchemyRepository,
 )
+from app.modules.reviews.domain.repository import AbstractReviewsUnitOfWork
 
 
 class ReviewsUnitOfWork(AbstractReviewsUnitOfWork):

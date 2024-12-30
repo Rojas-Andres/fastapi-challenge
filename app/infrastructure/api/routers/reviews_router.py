@@ -1,11 +1,12 @@
 from fastapi import APIRouter
-from app.modules.reviews.service_layer import services
+
+from app.infrastructure.api.schemas.reviews_schema import (
+    ReviewCreateReturn,
+    ReviewRecommendationReturn,
+)
 from app.modules.reviews.adapters.unit_of_work import ReviewsUnitOfWork
 from app.modules.reviews.domain.models import ReviewCreate
-from app.infrastructure.api.schemas.reviews_schema import (
-    ReviewRecommendationReturn,
-    ReviewCreateReturn,
-)
+from app.modules.reviews.service_layer import services
 
 router = APIRouter()
 

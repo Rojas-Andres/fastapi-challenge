@@ -1,7 +1,7 @@
-from app.modules.category.domain.repository import AbstractCategoryUnitOfWork
 from app.modules.category.adapters.sqlalchemy_repository import (
     CategorySqlAlchemyRepository,
 )
+from app.modules.category.domain.repository import AbstractCategoryUnitOfWork
 
 
 class CategoryUnitOfWork(AbstractCategoryUnitOfWork):

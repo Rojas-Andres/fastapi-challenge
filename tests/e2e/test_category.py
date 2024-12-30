@@ -1,9 +1,10 @@
 import os
-from starlette.testclient import TestClient
 from unittest import TestCase
-from tests.e2e.base_test import init_testing
-from faker import Faker
 
+from faker import Faker
+from starlette.testclient import TestClient
+
+from tests.e2e.base_test import init_testing
 
 fake = Faker()
 

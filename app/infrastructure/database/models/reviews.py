@@ -1,7 +1,9 @@
-from sqlalchemy import Column, Integer, ForeignKey, DateTime
-from app.infrastructure.database.models.base_model import BaseModel
 from datetime import datetime
+
+from sqlalchemy import Column, DateTime, ForeignKey, Integer
 from sqlalchemy.orm import relationship
+
+from app.infrastructure.database.models.base_model import BaseModel
 
 
 class LocationCategoryReviewORM(BaseModel):

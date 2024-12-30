@@ -27,7 +27,7 @@ class Settings:
     DATABASE_NAME: str = os.getenv("DATABASE_NAME", "postgres")
 
     if ENVIRONMENT == "test":
-        DATABASE_URL = f"sqlite:///test.db"
+        DATABASE_URL = "sqlite:///test.db"
     else:
         DATABASE_URL: str = os.getenv(
             "DATABASE_URL",

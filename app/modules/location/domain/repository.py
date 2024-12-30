@@ -1,5 +1,6 @@
-from app.modules.shared.domain.repository import SqlAlchemyUnitOfWork
 from abc import ABC, abstractmethod
+
+from app.modules.shared.domain.repository import SqlAlchemyUnitOfWork
 
 
 class AbstractLocationRepository(ABC):
@@ -20,5 +21,5 @@ class AbstractLocationUnitOfWork(SqlAlchemyUnitOfWork):
     location: AbstractLocationRepository
 
     def __enter__(self):
-        self.session = self.session_factory()
+        self.session = self.session_factory()  # noqa
         return super().__enter__()

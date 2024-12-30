@@ -1,5 +1,6 @@
-from app.modules.shared.domain.repository import SqlAlchemyUnitOfWork
 from abc import ABC, abstractmethod
+
+from app.modules.shared.domain.repository import SqlAlchemyUnitOfWork
 
 
 class AbstractCategoryRepository(ABC):

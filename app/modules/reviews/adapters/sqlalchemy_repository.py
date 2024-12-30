@@ -1,20 +1,21 @@
-from app.modules.reviews.domain.repository import (
-    AbstractReviewsRepository,
-    AbstractCategoryRepository,
-    AbstractLocationRepository,
-)
-from app.infrastructure.database.models import (
-    LocationORM,
-    CategoryORM,
-    LocationCategoryReviewORM,
-)
+import datetime
+
 from sqlalchemy.orm import Session
 from sqlalchemy.sql import func, literal
 
-import datetime
 from app.infrastructure.api.schemas.reviews_schema import (
-    ReviewRecommendation,
     ReviewCreate,
+    ReviewRecommendation,
+)
+from app.infrastructure.database.models import (
+    CategoryORM,
+    LocationCategoryReviewORM,
+    LocationORM,
+)
+from app.modules.reviews.domain.repository import (
+    AbstractCategoryRepository,
+    AbstractLocationRepository,
+    AbstractReviewsRepository,
 )
 
 

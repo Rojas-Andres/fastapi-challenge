@@ -1,6 +1,7 @@
-from app.modules.location.domain.repository import AbstractLocationRepository
-from app.infrastructure.database.models import LocationORM
 from sqlalchemy.orm import Session
+
+from app.infrastructure.database.models import LocationORM
+from app.modules.location.domain.repository import AbstractLocationRepository
 
 
 class LocationSqlAlchemyRepository(AbstractLocationRepository):
