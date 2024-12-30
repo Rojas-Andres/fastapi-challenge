@@ -33,7 +33,7 @@ Parameters:
   EcrRepositoryFastApi:
     Description: Description
     Type: AWS::SSM::Parameter::Value<String>
-    Default: EcrRepositoryFastApiFastApi
+    Default: EcrRepositoryFastApi
 
 Resources:
 
