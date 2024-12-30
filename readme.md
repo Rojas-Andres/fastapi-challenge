@@ -43,6 +43,7 @@
 #### Creacion de ECR para guardar imagenes de docker
 ![](images/deployment/creation_images_ecr.png)
 
+# Por motivos de costos se eliminaron los bucket y el stack. Se deja en evidencia que el proyecto se puede desplegar en AWS en ECS con fargate
 
 Documentacion de arquitectura
 - https://www.cosmicpython.com/book/chapter_06_uow.html
