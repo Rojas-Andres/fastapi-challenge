@@ -31,6 +31,18 @@
 ## Diagrama ER
 ![](images/diagrama/diagrama_er.png)
 
+## Despliegue AWS
+
+#### Creacion params store en secrets manager para el template de cloudformation
+![](images/deployment/creation_params_store.png)
+
+
+#### Bucket para guardar las envs
+![](images/deployment/bucket_save_envs.png)
+
+#### Creacion de ECR para guardar imagenes de docker
+![](images/deployment/creation_images_ecr.png)
+
 
 Documentacion de arquitectura
 - https://www.cosmicpython.com/book/chapter_06_uow.html
