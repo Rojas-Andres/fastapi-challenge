@@ -43,11 +43,11 @@ fastapi-challenge/
 │   │   ├── api/              # Definición de rutas y controladores de la API
 │   │   └── database/         # Configuración y gestión de la base de datos
 │   │
-│   ├── modules/              # Módulos de la lógica del negocio
-│   │   ├── category/         # Funcionalidades relacionadas con categorías
-│   │   ├── reviews/          # Funcionalidades relacionadas con las revisiones
-│   │   ├── location/         # Funcionalidades relacionadas con ubicaciones
-│   │   └── shared/           # Componentes compartidos entre los módulos
+│   ├── modules/
+│   │   ├── category/
+│   │   ├── reviews/
+│   │   ├── location/
+│   │   └── shared/
 │   │
 │   ├── main.py               # Punto de entrada principal de la aplicación
 │   └── gunicorn.conf.py      # Configuración para el servidor Gunicorn
