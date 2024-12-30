@@ -37,6 +37,13 @@ Parameters:
 
 Resources:
 
+  PrivateDnsNamespaceVpc:
+    Type: AWS::ServiceDiscovery::PrivateDnsNamespace
+    Properties:
+      Name: !Sub ${StackName}${Environment}PrivateDnsNamespace
+      Vpc: !Ref VPCId
+      Description: "Private DNS namespace for tutorial service discovery"
+
   EcsCluster:
     Type: AWS::ECS::Cluster
     Properties:
